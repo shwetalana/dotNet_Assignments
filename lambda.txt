@@ -1,0 +1,136 @@
+
+  
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+// Simple Interatest
+namespace LambdaAssinment
+{
+    class Program
+    {
+        static void Main1(string[] args)
+        {
+            Func<decimal, decimal, decimal, decimal> simpleInterest = (P,N,R) =>
+               {
+                   decimal ans = 0;
+
+                   ans = P * (1 + R * N);
+                   return ans;
+               };
+
+            Console.WriteLine(simpleInterest(32344, 2, 2));
+        }
+    }
+}
+
+// greater
+namespace LambdaAssinment2
+{
+    class Program
+    {
+        static void Main2(string[] args)
+        {
+            Func<int,int , bool> grate = (a, b) =>
+            {
+                bool flag = false;
+                if (a > b)
+                {
+                    flag = true;
+                }
+                return flag;
+            };
+ 
+            Console.WriteLine(grate(386,67));
+        }
+    }
+}
+
+
+// salary of Employee
+namespace LambdaAssinment3
+{
+    class Program
+    {
+        static void Main3(string[] args)
+        {
+            Employee e1 = new Employee();
+            e1.Salary = 34567;
+            Func<Employee,decimal> getBasic = (e) =>
+           {
+               return e.Salary;
+           };
+
+            Console.WriteLine(getBasic(e1));
+        }
+    }
+
+    class Employee
+    {
+        private decimal salary;
+        public decimal Salary
+        {
+            get { return salary; }
+            set { salary = value; }
+        }
+        
+    }
+}
+
+// Even and odd
+namespace LambdaAssinment4
+{
+    class Program
+    {
+        static void Main4(string[] args)
+        {
+            Predicate<int> isEven = (num) =>
+             {
+                 bool flag=false;
+                 if(num%2==0)
+                 {
+                     flag = true;
+                 }
+                 return flag;
+             };
+            Console.WriteLine(isEven(79));
+        }
+    }
+}
+
+namespace LambdaAssinment5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Employee e1 = new Employee();
+            e1.Salary = 344;
+            Predicate<Employee> getBasic = (e) =>
+            {
+                bool flag = false;
+                if(e.Salary > 10000)
+                {
+                    flag = true;
+                }
+                return flag;
+            };
+
+            Console.WriteLine(getBasic(e1));
+        }
+    }
+
+    class Employee
+    {
+        private decimal salary;
+        public decimal Salary
+        {
+            get { return salary; }
+            set { salary = value; }
+        }
+
+    }
+}
